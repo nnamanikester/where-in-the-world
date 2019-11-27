@@ -84,7 +84,7 @@
               <li>
                 <h4>
                   Languages:
-                  <span class="light-text">{{item.languages}}</span>
+                  <span class="light-text">{{item.languages[0]}}</span>
                 </h4>
               </li>
 

@@ -85,7 +85,9 @@
               <li>
                 <h4>
                   Languages:
-                  <span class="light-text">{{ item.languages[0] }}</span>
+                  <span
+                    class="light-text"
+                  >{{ showLanguage(item.languages) }} {{languages}}</span>
                 </h4>
               </li>
 
@@ -131,12 +133,18 @@ export default {
   name: "about",
   data() {
     return {
-      country: null
+      country: null,
+      languages: null
     };
   },
   methods: {
     goBack() {
       this.$router.go(-1);
+    },
+    showLanguage(param) {
+      param.forEach(element => {
+        return (this.languages = element.name);
+      });
     }
   },
   mounted() {

@@ -68,9 +68,7 @@
               <li>
                 <h4>
                   Top Level Domain:
-                  <span class="light-text">
-                    {{ item.topLevelDomain.toString() }}
-                  </span>
+                  <span class="light-text">{{ item.topLevelDomain.toString() }}</span>
                 </h4>
               </li>
 
@@ -94,32 +92,33 @@
               <li>
                 <h4>
                   Time Zone:
-                  <span class="light-text">
-                    {{ item.timezones.toString() }}
-                  </span>
+                  <span class="light-text">{{ item.timezones.toString() }}</span>
                 </h4>
               </li>
 
               <li>
                 <h4>
                   Calling Code:
-                  <span class="light-text">
-                    {{ item.callingCodes.toString() }}
-                  </span>
+                  <span class="light-text">{{ item.callingCodes.toString() }}</span>
                 </h4>
               </li>
 
               <li>
                 <h4>
                   Alpha Code:
-                  <span class="light-text">
-                    {{ item.alpha3Code.toString() }}
-                  </span>
+                  <span class="light-text">{{ item.alpha3Code.toString() }}</span>
                 </h4>
               </li>
             </ul>
           </div>
         </div>
+      </div>
+
+      <div class="details">
+        <code>
+          Developed with ❤️ by
+          <a href="https://github.com/kelvinblaze">Ifeanyi Kelvin Ossai</a>
+        </code>
       </div>
     </main>
   </fragment>
@@ -151,6 +150,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.details {
+  text-align: center;
+  background: var(--dark-blue);
+  color: var(--white);
+  padding: 1em;
+
+  a {
+    color: white;
+    font-weight: bold;
+  }
+}
 main {
   padding: 16px;
   background: var(--very-light-gray);

@@ -6,20 +6,20 @@
       </div>
       <div class="card__content">
         <div class="card__content-title">
-          <h2>{{countryName}}</h2>
+          <h2>{{ countryName }}</h2>
         </div>
         <div class="card__content-info">
           <h4>
             Population :
-            <span class="light-text">{{population}}</span>
+            <span class="light-text">{{ population }}</span>
           </h4>
           <h4>
             Region :
-            <span class="light-text">{{region}}</span>
+            <span class="light-text">{{ region }}</span>
           </h4>
           <h4>
             Capital:
-            <span class="light-text">{{capital}}</span>
+            <span class="light-text">{{ capital }}</span>
           </h4>
         </div>
       </div>

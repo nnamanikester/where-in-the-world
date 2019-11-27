@@ -17,7 +17,9 @@
         <div class="filter-wrapper">
           <button class="filter-btn" @click="show = !show">
             <strong>Filter By Region</strong>
-            <i class="material-icons-round">{{show ? 'expand_less' : 'expand_more' }}</i>
+            <i class="material-icons-round">
+              {{ show ? "expand_less" : "expand_more" }}
+            </i>
           </button>
 
           <div class="filter-content" v-show="show">

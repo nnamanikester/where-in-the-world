@@ -21,7 +21,7 @@
 
         <div class="country-content">
           <div class="country-name">
-            <h2>{{item.name}}</h2>
+            <h1>{{ item.name }}</h1>
           </div>
 
           <div class="country-details">
@@ -29,35 +29,35 @@
               <li>
                 <h4>
                   Native Name:
-                  <span class="light-text">{{item.nativeName}}</span>
+                  <span class="light-text">{{ item.nativeName }}</span>
                 </h4>
               </li>
 
               <li>
                 <h4>
                   Population:
-                  <span class="light-text">{{item.population}}</span>
+                  <span class="light-text">{{ item.population }}</span>
                 </h4>
               </li>
 
               <li>
                 <h4>
                   Region:
-                  <span class="light-text">{{item.region}}</span>
+                  <span class="light-text">{{ item.region }}</span>
                 </h4>
               </li>
 
               <li>
                 <h4>
                   Sub Region:
-                  <span class="light-text">{{item.subregion}}</span>
+                  <span class="light-text">{{ item.subregion }}</span>
                 </h4>
               </li>
 
               <li>
                 <h4>
                   Capital:
-                  <span class="light-text">{{item.capital}}</span>
+                  <span class="light-text">{{ item.capital }}</span>
                 </h4>
               </li>
             </ul>
@@ -68,44 +68,53 @@
               <li>
                 <h4>
                   Top Level Domain:
-                  <span class="light-text">{{ item.topLevelDomain.toString() }}</span>
+                  <span class="light-text">
+                    {{ item.topLevelDomain.toString() }}
+                  </span>
                 </h4>
               </li>
 
               <li>
                 <h4>
                   Currency:
-                  <span
-                    class="light-text"
-                  >{{item.currencies[0].name}}( {{item.currencies[0].code}})</span>
+                  <span class="light-text">
+                    {{ item.currencies[0].name }}(
+                    {{ item.currencies[0].code }})
+                  </span>
                 </h4>
               </li>
 
               <li>
                 <h4>
                   Languages:
-                  <span class="light-text">{{item.languages[0]}}</span>
+                  <span class="light-text">{{ item.languages[0] }}</span>
                 </h4>
               </li>
 
               <li>
                 <h4>
                   Time Zone:
-                  <span class="light-text">{{item.timezones.toString()}}</span>
+                  <span class="light-text">
+                    {{ item.timezones.toString() }}
+                  </span>
                 </h4>
               </li>
 
               <li>
                 <h4>
                   Calling Code:
-                  <span class="light-text">{{item.callingCodes.toString()}}</span>
+                  <span class="light-text">
+                    {{ item.callingCodes.toString() }}
+                  </span>
                 </h4>
               </li>
 
               <li>
                 <h4>
                   Alpha Code:
-                  <span class="light-text">{{item.alpha3Code.toString()}}</span>
+                  <span class="light-text">
+                    {{ item.alpha3Code.toString() }}
+                  </span>
                 </h4>
               </li>
             </ul>
@@ -169,6 +178,19 @@ main {
   margin: 24px 0;
 }
 
+.country-content {
+  @media (min-width: 900px) {
+    margin: 0;
+  }
+}
+
+.country {
+  @media (min-width: 900px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+  }
+}
 .country-flag {
   width: 100%;
   img {

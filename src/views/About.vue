@@ -82,12 +82,23 @@
                 </h4>
               </li>
 
-              <li>
+              <!-- <li>
                 <h4>
                   Languages:
                   <span
                     class="light-text"
                   >{{ showLanguage(item.languages) }} {{languages}}</span>
+                </h4>
+              </li>-->
+
+              <li>
+                <h4>
+                  Languages:
+                  <span
+                    class="light-text"
+                    v-for="(lan, i) in Object.keys(item.languages)"
+                    :key="i"
+                  >{{ item.languages[lan].name }}</span>
                 </h4>
               </li>
 
@@ -160,18 +171,19 @@ export default {
 <style lang="scss" scoped>
 .details {
   text-align: center;
-  background: var(--dark-blue);
-  color: var(--white);
+  background: var(--secondary);
+  color: var(--text-color);
   padding: 1em;
 
   a {
-    color: white;
+    color: var(--text-color);
     font-weight: bold;
   }
 }
 main {
   padding: 16px;
-  background: var(--very-light-gray);
+  background: var(--primary);
+  color: var(--text-color);
 }
 .back-button-wrapper {
   .back-button {
@@ -180,8 +192,9 @@ main {
     padding: 1em;
     box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    background: var(--white);
+    background: var(--secondary);
     border: none;
+    color: var(--text-color);
     cursor: pointer;
     outline: none;
     strong {

@@ -17,9 +17,7 @@
         <div class="filter-wrapper">
           <button class="filter-btn" @click="show = !show">
             <strong>Filter By Region</strong>
-            <i class="material-icons-round">
-              {{ show ? "expand_less" : "expand_more" }}
-            </i>
+            <i class="material-icons-round">{{ show ? "expand_less" : "expand_more" }}</i>
           </button>
 
           <div class="filter-content" v-show="show">
@@ -94,7 +92,7 @@ export default {
 
 <style lang="scss" scoped>
 main {
-  background: var(--very-light-gray);
+  background: var(--primary);
 }
 main .action-bar {
   padding: 4em 4em;
@@ -107,14 +105,14 @@ main .action-bar {
 main .action-bar .search-wrapper {
   display: flex;
   align-items: center;
-  background: var(--white);
+  background: var(--secondary);
   position: relative;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   width: 30%;
 }
 main .action-bar .search-wrapper i {
-  color: var(--dark-gray);
+  color: var(--text-color);
   font-size: 2em;
   margin-left: 8px;
 }
@@ -126,6 +124,7 @@ main .action-bar .search-wrapper input {
   margin-left: 8px;
   background: transparent;
   outline: none;
+  color: var(--text-color);
 }
 
 /* Filter */
@@ -143,11 +142,12 @@ main .action-bar .filter-wrapper {
     justify-content: space-between;
     outline: none;
     cursor: pointer;
-    background: var(--white);
+    background: var(--secondary);
+    color: var(--text-color);
   }
 
   .filter-content {
-    background: var(--white);
+    background: var(--secondary);
     margin-top: 16px;
     box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
     padding: 16px;
@@ -155,6 +155,7 @@ main .action-bar .filter-wrapper {
     width: calc(80%);
     border-radius: 5px;
     z-index: 9999;
+    color: var(--text-color);
     ul {
       list-style: none;
       li {
@@ -174,7 +175,7 @@ main .action-bar .filter-wrapper select {
   width: 60%;
   outline: none;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
-  background: white;
+  background: var(--primary);
   border-radius: 5px;
 }
 

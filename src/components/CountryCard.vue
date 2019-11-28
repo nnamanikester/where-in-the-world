@@ -47,9 +47,9 @@ export default {
   border-radius: 5px;
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  background: var(--white);
+  background: var(--secondary);
   cursor: pointer;
-  color: var(--very-dark-blue-light);
+  color: var(--text-color);
 
   &:hover {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);

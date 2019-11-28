@@ -152,7 +152,7 @@ main .action-bar .filter-wrapper {
     box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
     padding: 16px;
     position: absolute;
-    width: calc(80%);
+    width: inherit;
     border-radius: 5px;
     z-index: 9999;
     color: var(--text-color);

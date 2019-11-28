@@ -130,7 +130,10 @@
       <div class="details">
         <code>
           Developed with ❤️ by
-          <a href="https://github.com/kelvinblaze">Ifeanyi Kelvin Ossai</a>
+          <a
+            href="https://github.com/kelvinblaze"
+            target="_blank"
+          >Ifeanyi Kelvin Ossai</a>
         </code>
       </div>
     </main>

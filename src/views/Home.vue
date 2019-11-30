@@ -9,7 +9,7 @@
           <input
             type="text"
             placeholder="Search for a country..."
-            @keydown="searchCountry"
+            @keyup="searchCountry"
             v-model="search_text"
           />
         </div>

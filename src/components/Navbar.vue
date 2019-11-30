@@ -24,7 +24,8 @@ export default {
   name: "navbar",
   data() {
     return {
-      toggle: false
+      toggle: false,
+      showSkeleton: true
     };
   },
   methods: {

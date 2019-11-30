@@ -31,6 +31,7 @@
           </div>
         </div>
       </div>
+
       <div class="content">
         <div
           class="card-content"
@@ -62,7 +63,8 @@ export default {
       search_text: "",
       filter_text: "",
       show: false,
-      showDetails: true
+      showDetails: true,
+      showSkeleton: true
     };
   },
   methods: {
@@ -82,7 +84,7 @@ export default {
       this.$router.push("/about/" + param);
     }
   },
-  mounted() {
+  created() {
     axios
       .get("https://restcountries.eu/rest/v2/all")
       .then(response => (this.countries = response.data));
@@ -91,6 +93,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// Utilities
+.skeleton {
+  @media (max-width: 768px) {
+    margin: 0 20px;
+  }
+}
 main {
   background: var(--primary);
 }

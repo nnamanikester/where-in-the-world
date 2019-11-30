@@ -94,11 +94,7 @@
               <li>
                 <h4>
                   Languages:
-                  <span
-                    class="light-text"
-                    v-for="(lan, i) in Object.keys(item.languages)"
-                    :key="i"
-                  >{{ item.languages[lan].name }}</span>
+                  <span class="light-text">{{ languages}}</span>
                 </h4>
               </li>
 
@@ -124,6 +120,12 @@
               </li>
             </ul>
           </div>
+
+          <div class="country-details" v-if="false">
+            <h4>Border Countries</h4>
+
+            <div class="border-country-wrapper">{{ borderCountries }}</div>
+          </div>
         </div>
       </div>
 
@@ -147,8 +149,7 @@ export default {
   name: "about",
   data() {
     return {
-      country: null,
-      languages: null
+      country: Object
     };
   },
   methods: {
@@ -167,6 +168,21 @@ export default {
     axios
       .get(`https://restcountries.eu/rest/v2/name/${countryName}?fullText=true`)
       .then(response => (this.country = response.data));
+  },
+  computed: {
+    languages() {
+      let langArr = this.country[0].languages;
+      let emptyArr = [];
+      langArr.forEach(data => {
+        emptyArr.push(data.name);
+      });
+
+      return emptyArr.toString();
+    },
+    borderCountries() {
+      let borderCountry = this.country[0].borders;
+      return borderCountry;
+    }
   }
 };
 </script>

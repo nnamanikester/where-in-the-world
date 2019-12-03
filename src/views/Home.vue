@@ -89,8 +89,7 @@ export default {
     axios
       .get("https://restcountries.eu/rest/v2/all")
       .then(response => (this.countries = response.data));
-  },
-  computed: {}
+  }
 };
 </script>
 

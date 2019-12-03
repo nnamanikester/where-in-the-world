@@ -11,7 +11,7 @@
         <div class="card__content-info">
           <h4>
             Population :
-            <span class="light-text">{{ population }}</span>
+            <span class="light-text">{{populations}}</span>
           </h4>
           <h4>
             Region :
@@ -30,7 +30,15 @@
 <script>
 export default {
   name: "CountryCard",
-  props: ["image", "countryName", "population", "region", "capital"]
+  props: ["image", "countryName", "population", "region", "capital"],
+
+  computed: {
+    populations() {
+      let format = new Intl.NumberFormat();
+      let populationArr = this.population;
+      return format.format(populationArr);
+    }
+  }
 };
 </script>
 

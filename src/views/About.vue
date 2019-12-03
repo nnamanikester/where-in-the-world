@@ -121,10 +121,16 @@
             </ul>
           </div>
 
-          <div class="country-details" v-if="false">
+          <div class="country-details">
             <h4>Border Countries</h4>
 
-            <div class="border-country-wrapper">{{ borderCountries }}</div>
+            <div class="border-country-wrapper">
+              <div
+                class="border"
+                v-for="(borders, index) in borderCountries"
+                :key="index"
+              >{{borders}}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -193,6 +199,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.border-country-wrapper {
+  display: flex;
+  .border {
+    background: var(--secondary);
+    color: var(--text-color);
+    font-weight: bold;
+    margin: 8px 0;
+    padding: 8px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    &:not(:first-child) {
+      margin-left: 8px;
+    }
+  }
+}
+
 .details {
   text-align: center;
   background: var(--secondary);

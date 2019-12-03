@@ -14,6 +14,8 @@
           />
         </div>
 
+        <p>{{population}}</p>
+
         <div class="filter-wrapper">
           <button class="filter-btn" @click="show = !show">
             <strong>Filter By Region</strong>
@@ -63,8 +65,7 @@ export default {
       search_text: "",
       filter_text: "",
       show: false,
-      showDetails: true,
-      showSkeleton: true
+      showDetails: true
     };
   },
   methods: {
@@ -88,7 +89,8 @@ export default {
     axios
       .get("https://restcountries.eu/rest/v2/all")
       .then(response => (this.countries = response.data));
-  }
+  },
+  computed: {}
 };
 </script>
 

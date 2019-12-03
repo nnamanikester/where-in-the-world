@@ -36,7 +36,7 @@
               <li>
                 <h4>
                   Population:
-                  <span class="light-text">{{ item.population }}</span>
+                  <span class="light-text">{{ population}}</span>
                 </h4>
               </li>
 
@@ -182,6 +182,11 @@ export default {
     borderCountries() {
       let borderCountry = this.country[0].borders;
       return borderCountry;
+    },
+    population() {
+      var format = new Intl.NumberFormat();
+      let populationArr = this.country[0].population;
+      return format.format(populationArr);
     }
   }
 };

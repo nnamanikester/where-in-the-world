@@ -9,12 +9,13 @@
           <input
             type="text"
             placeholder="Search for a country..."
-            @keyup="searchCountry"
+            @keyup.enter="searchCountry"
             v-model="search_text"
           />
         </div>
-
-        <p>{{population}}</p>
+        <p>
+          <strong class="search-err">{{search_error_message}}</strong>
+        </p>
 
         <div class="filter-wrapper">
           <button class="filter-btn" @click="show = !show">
@@ -34,20 +35,26 @@
         </div>
       </div>
 
-      <div class="content">
-        <div
-          class="card-content"
-          v-for="country in countries"
-          :key="country.name"
-          @click="goToPage(`${country.name}`)"
-        >
-          <CountryCard
-            :image="country.flag"
-            :countryName="country.name"
-            :population="country.population || 'not documented'"
-            :region="country.region || 'not documented'"
-            :capital="country.capital || 'none'"
-          />
+      <div v-if="loading">
+        <Loader />
+      </div>
+
+      <div v-if="!loading">
+        <div class="content">
+          <div
+            class="card-content"
+            v-for="country in countries"
+            :key="country.name"
+            @click="goToPage(`${country.name}`)"
+          >
+            <CountryCard
+              :image="country.flag"
+              :countryName="country.name"
+              :population="country.population || 'not documented'"
+              :region="country.region || 'not documented'"
+              :capital="country.capital || 'none'"
+            />
+          </div>
         </div>
       </div>
     </main>
@@ -65,20 +72,35 @@ export default {
       search_text: "",
       filter_text: "",
       show: false,
-      showDetails: true
+      showDetails: true,
+      search_error_message: "",
+      loading: true
     };
   },
   methods: {
     searchCountry() {
+      this.loading = true;
+      this.search_error_message = "";
       axios
         .get(`https://restcountries.eu/rest/v2/name/${this.search_text}`)
-        .then(response => (this.countries = response.data))
-        .catch(error => error);
+        .then(response => {
+          this.loading = false;
+          this.countries = response.data;
+        })
+        .catch(error => {
+          this.loading = false;
+          this.search_error_message = "Country Is Not Found, Try Again.";
+          error;
+        });
     },
     filter(param) {
+      this.loading = true;
       axios
         .get(`https://restcountries.eu/rest/v2/region/${param}`)
-        .then(response => (this.countries = response.data));
+        .then(response => {
+          this.loading = false;
+          this.countries = response.data;
+        });
       this.show = !this.show;
     },
     goToPage(param) {
@@ -86,9 +108,24 @@ export default {
     }
   },
   created() {
-    axios
-      .get("https://restcountries.eu/rest/v2/all")
-      .then(response => (this.countries = response.data));
+    axios.get("https://restcountries.eu/rest/v2/all").then(response => {
+      this.loading = false;
+      this.countries = response.data;
+    });
+  },
+  watch: {
+    search_text(field) {
+      if (field == "") {
+        this.loading = true;
+        axios
+          .get("https://restcountries.eu/rest/v2/all")
+          .then(response => {
+            this.loading = false;
+            this.countries = response.data;
+          })
+          .catch(error => error);
+      }
+    }
   }
 };
 </script>
@@ -100,8 +137,12 @@ export default {
     margin: 0 20px;
   }
 }
+.search-err {
+  color: var(--text-color);
+}
 main {
   background: var(--primary);
+  height: 100%;
 }
 main .action-bar {
   padding: 4em 4em;

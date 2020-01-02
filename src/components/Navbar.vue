@@ -7,8 +7,12 @@
         </router-link>
       </div>
       <div class="toggle-btn">
-        <i class="material-icons-round">{{toggle ? 'wb_sunny' : 'brightness_2'}}</i>
-        <p>{{toggle ? toDark() : toLight()}}</p>
+        <i class="material-icons-round">
+          {{
+          toggle ? "wb_sunny" : "brightness_2"
+          }}
+        </i>
+        <p>{{ toggle ? toDark() : toLight() }}</p>
         <!-- Toggle Switch -->
         <label class="switch">
           <input type="checkbox" v-model="toggle" />

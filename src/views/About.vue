@@ -11,125 +11,127 @@
       </div>
 
       <!-- Country Details -->
-
-      <!-- <p>{{country}}</p> -->
-
-      <div class="country" v-for="item in country" :key="item.name">
-        <div class="country-flag">
-          <img :src="item.flag" :alt="item.name" />
-        </div>
-
-        <div class="country-content">
-          <div class="country-name">
-            <h1>{{ item.name }}</h1>
+      <div v-if="loading">
+        <Loader />
+      </div>
+      <div v-if="!loading">
+        <div class="country" v-for="item in country" :key="item.name">
+          <div class="country-flag">
+            <img :src="item.flag" :alt="item.name" />
           </div>
 
-          <div class="country-details">
-            <ul>
-              <li>
-                <h4>
-                  Native Name:
-                  <span class="light-text">{{ item.nativeName }}</span>
-                </h4>
-              </li>
+          <div class="country-content">
+            <div class="country-name">
+              <h1>{{ item.name }}</h1>
+            </div>
 
-              <li>
-                <h4>
-                  Population:
-                  <span class="light-text">{{ population}}</span>
-                </h4>
-              </li>
+            <div class="country-details">
+              <ul>
+                <li>
+                  <h4>
+                    Native Name:
+                    <span class="light-text">{{ item.nativeName }}</span>
+                  </h4>
+                </li>
 
-              <li>
-                <h4>
-                  Region:
-                  <span class="light-text">{{ item.region }}</span>
-                </h4>
-              </li>
+                <li>
+                  <h4>
+                    Population:
+                    <span class="light-text">{{ population}}</span>
+                  </h4>
+                </li>
 
-              <li>
-                <h4>
-                  Sub Region:
-                  <span class="light-text">{{ item.subregion }}</span>
-                </h4>
-              </li>
+                <li>
+                  <h4>
+                    Region:
+                    <span class="light-text">{{ item.region }}</span>
+                  </h4>
+                </li>
 
-              <li>
-                <h4>
-                  Capital:
-                  <span class="light-text">{{ item.capital }}</span>
-                </h4>
-              </li>
-            </ul>
-          </div>
+                <li>
+                  <h4>
+                    Sub Region:
+                    <span class="light-text">{{ item.subregion }}</span>
+                  </h4>
+                </li>
 
-          <div class="country-details">
-            <ul>
-              <li>
-                <h4>
-                  Top Level Domain:
-                  <span class="light-text">{{ item.topLevelDomain.toString() }}</span>
-                </h4>
-              </li>
+                <li>
+                  <h4>
+                    Capital:
+                    <span class="light-text">{{ item.capital }}</span>
+                  </h4>
+                </li>
+              </ul>
+            </div>
 
-              <li>
-                <h4>
-                  Currency:
-                  <span class="light-text">
-                    {{ item.currencies[0].name }}(
-                    {{ item.currencies[0].code }})
-                  </span>
-                </h4>
-              </li>
+            <div class="country-details">
+              <ul>
+                <li>
+                  <h4>
+                    Top Level Domain:
+                    <span class="light-text">{{ item.topLevelDomain.toString() }}</span>
+                  </h4>
+                </li>
 
-              <!-- <li>
+                <li>
+                  <h4>
+                    Currency:
+                    <span class="light-text">
+                      {{ item.currencies[0].name }}(
+                      {{ item.currencies[0].code }})
+                    </span>
+                  </h4>
+                </li>
+
+                <!-- <li>
                 <h4>
                   Languages:
                   <span
                     class="light-text"
                   >{{ showLanguage(item.languages) }} {{languages}}</span>
                 </h4>
-              </li>-->
+                </li>-->
 
-              <li>
-                <h4>
-                  Languages:
-                  <span class="light-text">{{ languages}}</span>
-                </h4>
-              </li>
+                <li>
+                  <h4>
+                    Languages:
+                    <span class="light-text">{{ languages}}</span>
+                  </h4>
+                </li>
 
-              <li>
-                <h4>
-                  Time Zone:
-                  <span class="light-text">{{ item.timezones.toString() }}</span>
-                </h4>
-              </li>
+                <li>
+                  <h4>
+                    Time Zone:
+                    <span class="light-text">{{ item.timezones.toString() }}</span>
+                  </h4>
+                </li>
 
-              <li>
-                <h4>
-                  Calling Code:
-                  <span class="light-text">{{ item.callingCodes.toString() }}</span>
-                </h4>
-              </li>
+                <li>
+                  <h4>
+                    Calling Code:
+                    <span class="light-text">{{ item.callingCodes.toString() }}</span>
+                  </h4>
+                </li>
 
-              <li>
-                <h4>
-                  Alpha Code:
-                  <span class="light-text">{{ item.alpha3Code.toString() }}</span>
-                </h4>
-              </li>
-            </ul>
-          </div>
+                <li>
+                  <h4>
+                    Alpha Code:
+                    <span class="light-text">{{ item.alpha3Code.toString() }}</span>
+                  </h4>
+                </li>
+              </ul>
+            </div>
 
-          <div class="country-details">
-            <h4>Border Countries</h4>
+            <div class="country-details">
+              <h4>Border Countries</h4>
 
-            <div class="border-country-wrapper">
-              <div
-                class="border"
-                v-for="(borders, index) in borderCountries"
-                :key="index"
-              >{{borders}}</div>
+              <div class="border-country-wrapper">
+                <div
+                  class="border"
+                  v-for="(borders, index) in borderCountries"
+                  :key="index"
+                >{{borders}}</div>
+              </div>
             </div>
           </div>
         </div>
@@ -155,7 +157,8 @@ export default {
   name: "about",
   data() {
     return {
-      country: Object
+      country: Object,
+      loading: true
     };
   },
   methods: {
@@ -173,7 +176,10 @@ export default {
 
     axios
       .get(`https://restcountries.eu/rest/v2/name/${countryName}?fullText=true`)
-      .then(response => (this.country = response.data));
+      .then(response => {
+        this.loading = false;
+        this.country = response.data;
+      });
   },
   computed: {
     languages() {
@@ -201,6 +207,8 @@ export default {
 <style lang="scss" scoped>
 .border-country-wrapper {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   .border {
     background: var(--secondary);
     color: var(--text-color);

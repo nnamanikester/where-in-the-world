@@ -8,8 +8,9 @@
           <i class="material-icons-round">search</i>
           <input
             type="text"
+            aria-label="Search Field"
             placeholder="Search for a country..."
-            @keyup.enter="searchCountry"
+            @keyup.prevent="searchCountry"
             v-model="search_text"
           />
         </div>
@@ -107,7 +108,7 @@ export default {
       this.$router.push("/about/" + param);
     }
   },
-  created() {
+  beforeCreate() {
     axios.get("https://restcountries.eu/rest/v2/all").then(response => {
       this.loading = false;
       this.countries = response.data;

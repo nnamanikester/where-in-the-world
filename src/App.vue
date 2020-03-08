@@ -6,7 +6,11 @@
 
 <script>
 export default {
-  name: "app"
+  name: "app",
+  metaInfo () {
+    titleTemplate: "%s - Where In The World" 
+  }
+  
 };
 </script>
 

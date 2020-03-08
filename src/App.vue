@@ -10,7 +10,7 @@ export default {
   metaInfo() {
     return {
       titleTemplate: "%s - Where In The World",
-      // title: "Home"
+      title: "Home"
     }
   }
   

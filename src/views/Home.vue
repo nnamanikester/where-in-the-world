@@ -129,7 +129,9 @@ export default {
     }
   },
   metaInfo() {
-    title: "All Countries";
+    return {
+      title: "All Countries"
+    }
   }
 };
 </script>

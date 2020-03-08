@@ -127,6 +127,9 @@ export default {
           .catch(error => error);
       }
     }
+  },
+  metaInfo () {
+    title: "All Contries"
   }
 };
 </script>

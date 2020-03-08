@@ -8,8 +8,8 @@
 export default {
   name: "app",
   metaInfo () {
-    titleTemplate: "%s - Where In The World"
-    title: "Home"
+    titleTemplate: "%s - Where In The World";
+    title: "Home";
   }
   
 };

@@ -201,7 +201,7 @@ export default {
       return format.format(populationArr);
     },
     metaInfo () {
-      title: this.$route.params.query ? this.$route.params.query : "Country Name"
+      title: this.$route.params.query ? this.$route.params.query : "Country Name";
     }
   }
 };

@@ -129,7 +129,7 @@ export default {
     }
   },
   metaInfo () {
-    title: "All Contries"
+    title: "All Countries";
   }
 };
 </script>

@@ -128,7 +128,7 @@ export default {
       }
     }
   },
-  metaInfo () {
+  metaInfo() {
     title: "All Countries";
   }
 };

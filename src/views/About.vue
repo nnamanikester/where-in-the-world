@@ -200,7 +200,7 @@ export default {
       let populationArr = this.country[0].population;
       return format.format(populationArr);
     },
-    metaInfo () {
+    metaInfo() {
       title: this.$route.params.query ? this.$route.params.query : "Country Name";
     }
   }

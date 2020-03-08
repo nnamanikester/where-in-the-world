@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "app",
-  metaInfo () {
+  metaInfo() {
     titleTemplate: "%s - Where In The World";
     title: "Home";
   }
